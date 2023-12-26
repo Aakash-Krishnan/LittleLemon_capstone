@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import greekSalad from "../../assets/greekSalad.jpg";
-import Bruchetta from "../../assets/bruchetta.svg";
-import LemonDessert from "../../assets/lemonDessert.jpg";
+import greekSalad from "../../../assets/greekSalad.jpg";
+import Bruchetta from "../../../assets/bruchetta.svg";
+import LemonDessert from "../../../assets/lemonDessert.jpg";
 
 const Specials = () => {
   const foodsList = [
@@ -30,7 +30,7 @@ const Specials = () => {
   ];
 
   return (
-    <MainContainer>
+    <MainContainer id="Menu">
       <TopDiv>
         <Title>Specials</Title>
         <OrderMenu>online menu</OrderMenu>

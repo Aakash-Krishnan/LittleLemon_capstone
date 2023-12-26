@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import ChefImg from "../../assets/restaurantChefB.jpg";
-import ChefImg2 from "../../assets/MarioandAdrianA.jpg";
+import ChefImg from "../../../assets/restaurantChefB.jpg";
+import ChefImg2 from "../../../assets/MarioandAdrianA.jpg";
 import "./About.css";
 
 const About = () => {
   const Data = {
     Title: "Little Lemon",
-    location: "Chennai",
+    location: "New York",
     description: `Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
         sint. Velit officia consequat duis enim velit mollit. Exercitation
         veniam consequat sunt nostrud amet.Amet minim mollit non deserunt
@@ -18,7 +18,7 @@ const About = () => {
   };
 
   return (
-    <WholeContainet>
+    <WholeContainet id="About">
       <ContentDiv>
         <Title>{Data.Title}</Title>
         <Location>{Data.location}</Location>

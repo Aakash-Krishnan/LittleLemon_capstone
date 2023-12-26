@@ -1,10 +1,10 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import styled from "styled-components";
-import Sajal from "../../assets/Sajal.png";
-import Ramsha from "../../assets/Ramsha.png";
-import Mawra from "../../assets/Mawra.png";
-import IQSF from "../../assets/IQSF.png";
+import Sajal from "../../../assets/Sajal.png";
+import Ramsha from "../../../assets/Ramsha.png";
+import Mawra from "../../../assets/Mawra.png";
+import IQSF from "../../../assets/IQSF.png";
 import { Title } from "./Specials";
 
 const Testimonials = () => {

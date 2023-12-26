@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../../assets/Logo.svg";
 import { HashRouter, Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
@@ -7,10 +8,7 @@ const NavBar = () => {
   return (
     <WholeContainer>
       <ImgDiv>
-        <img
-          src="E:\AdvReact_Coursera\littlelemon_capstone\src\assets\Logo.svg"
-          alt="Logo"
-        />
+        <img src={Logo} alt="Logo" />
       </ImgDiv>
       <div>
         <ListDiv>
@@ -23,12 +21,12 @@ const NavBar = () => {
           <LinkTo className="link" to={"/order-online"}>
             Order Online
           </LinkTo>
-          <LinkTo className="link" smooth to="/#menu">
+          <HashTo className="link" smooth to="/#Menu">
             Menu
-          </LinkTo>
-          <LinkTo className="link" smooth to="/#about">
+          </HashTo>
+          <HashTo className="link" smooth to="/#About">
             About
-          </LinkTo>
+          </HashTo>
         </ListDiv>
       </div>
     </WholeContainer>
@@ -59,7 +57,17 @@ export const ListDiv = styled.div`
   color: black;
 `;
 
-export const LinkTo = styled(Link, HashLink)`
+export const LinkTo = styled(Link)`
+  padding: 8px;
+  font-size: 22px;
+  text-decoration: none;
+  color: #495e57;
+  &:hover {
+    color: #c1a207;
+  }
+`;
+
+export const HashTo = styled(HashLink)`
   padding: 8px;
   font-size: 22px;
   text-decoration: none;

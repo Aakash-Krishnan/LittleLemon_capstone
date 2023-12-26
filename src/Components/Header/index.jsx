@@ -2,24 +2,26 @@ import React from "react";
 import styled from "styled-components";
 import restaurentFood from "../../assets/restauranfood.jpg";
 import { Link } from "react-router-dom";
+import BlockRevealAnimation from "react-block-reveal-animation";
 
-const Header = () => {
+const Header = ({ data }) => {
   return (
     <WholeHeader>
       <LeftPart>
-        <Title>Little Lemon</Title>
-        <Location>Chennai</Location>
-        <Description>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
-        </Description>
+        <div>
+          <BlockRevealAnimation color="#F4CE14">
+            <Title>{data.title}</Title>
+          </BlockRevealAnimation>
+        </div>
+        <BlockRevealAnimation color="#edefee">
+          <Location>{data.location}</Location>
+        </BlockRevealAnimation>
+        <BlockRevealAnimation color="#edefee">
+          <Description>{data.description}</Description>
+        </BlockRevealAnimation>
         <LinkDiv>
           <LinkTo className="link" to={"/reservation"}>
-            Reserve a Table
+            {data.goto}
           </LinkTo>
         </LinkDiv>
       </LeftPart>
@@ -77,7 +79,7 @@ export const LinkTo = styled(Link)`
   padding: 12px;
   font-size: 22px;
   text-decoration: none;
-  background-color: #c1a207;
+  background-color: #ccb128;
   color: black;
   border-radius: 20px;
 `;

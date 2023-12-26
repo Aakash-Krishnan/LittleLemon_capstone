@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Specials from "./Specials";
-import Testimonials from "./Testimonials";
-import About from "./About";
+import Specials from "./SubContents/Specials";
+import Testimonials from "./SubContents/Testimonials";
+import About from "./SubContents/About";
 
 const Main = () => {
   return (
