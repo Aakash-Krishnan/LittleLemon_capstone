@@ -7,7 +7,6 @@ const BookingForm = ({
   submitForm,
   reservationData,
   updateData,
-  setReservationData,
 }) => {
   useEffect(() => {
     dispatch({ type: "UPDATE_TIMES", date: new Date(reservationData.date) });
@@ -45,9 +44,10 @@ const BookingForm = ({
 
       <Label htmlFor="guest">Number of guests</Label>
       <GuestsDiv>
-        <div className="Operator" id="increment" onClick={updateData}>
-          +
+        <div className="Operator" id="decrement" onClick={updateData}>
+          -
         </div>
+
         <Input
           className="numberInput"
           required
@@ -60,8 +60,8 @@ const BookingForm = ({
           id="guests"
           data-testid="guests-input"
         />
-        <div className="Operator" id="decrement" onClick={updateData}>
-          -
+        <div className="Operator" id="increment" onClick={updateData}>
+          +
         </div>
       </GuestsDiv>
       <Label htmlFor="occasion">Occasion</Label>
@@ -84,6 +84,7 @@ const BookingForm = ({
 export default BookingForm;
 
 export const Form = styled.form`
+  margin-left: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,15 +110,17 @@ export const GuestsDiv = styled.div`
   gap: 40px;
   > .Operator {
     font-size: 40px;
-    background-color: #edefee;
+    /* background-color: #edefee; */
     border-radius: 50%;
     padding: 14px;
     height: 20px;
     display: flex;
     align-items: center;
+    background-color: #495e57;
+    color: #edefee;
     &:hover {
-      background-color: #495e57;
-      color: #f4ce14;
+      color: #495e57;
+      background-color: #f4ce14;
     }
   }
 `;
@@ -131,9 +134,8 @@ export const Shared = css`
   gap: 2px;
   font-weight: 500;
   &:hover {
-    background-color: #495e57;
-    color: #f4ce14;
-    box-shadow: 6px 3px 3px #edefee;
+    background-color: #fbdabb;
+    color: #333333;
   }
 `;
 
@@ -159,7 +161,7 @@ export const SubmitButton = styled.input`
   background-color: #495e57;
   color: #edefee;
   &:hover {
-    color: #f4ce14;
-    box-shadow: 6px 3px 3px #edefee;
+    color: #495e57;
+    background-color: #f4ce14;
   }
 `;

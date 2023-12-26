@@ -7,7 +7,6 @@ import styled from "styled-components";
 const Reservation = () => {
   const navigate = useNavigate();
   const [avaliableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
-  const [guests, setGuests] = useState(1);
 
   const [reservationData, setReservationData] = useState({
     date: new Date().toLocaleDateString("en-CA"),
@@ -20,8 +19,6 @@ const Reservation = () => {
     const { id, value } = e.target;
     switch (id) {
       case "increment":
-        // console.log("HELLOOOOOOOOOOOOOO");
-        // const val = reservationData.guests;
         if (reservationData.guests < 10) {
           setReservationData({
             ...reservationData,
@@ -53,13 +50,7 @@ const Reservation = () => {
         console.log(reservationData);
     }
   };
-  // const updateGuest = (type) => {
-  //   if (type === "increment") {
-  //     setGuests(reservationData.guests + 1);
-  //   } else {
-  //     setGuests(reservationData.guests - 1);
-  //   }
-  // };
+
   const submitForm = (e) => {
     e.preventDefault();
     const validate = submitAPI(reservationData);
@@ -73,12 +64,12 @@ const Reservation = () => {
 
   return (
     <Container>
+      <h1>Book a table</h1>
       <BookingForm
         avaliableTimes={avaliableTimes}
         dispatch={dispatch}
         submitForm={submitForm}
         reservationData={reservationData}
-        // setReservationData={setReservationData}
         updateData={updateData}
       />
     </Container>
@@ -88,10 +79,15 @@ const Reservation = () => {
 export default Reservation;
 
 export const Container = styled.div`
-  padding-top: 8rem;
+  padding-top: 6rem;
   padding-bottom: 8rem;
   display: flex;
-  justify-content: center;
   width: 100%;
   background-color: #333333;
+  > h1 {
+    color: #edefee;
+    text-decoration: underline;
+    font-size: 40px;
+    margin-left: 50px;
+  }
 `;
