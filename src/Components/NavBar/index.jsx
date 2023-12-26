@@ -18,9 +18,6 @@ const NavBar = () => {
           <LinkTo className="link" to={"/reservation"}>
             Reservation
           </LinkTo>
-          <LinkTo className="link" to={"/order-online"}>
-            Order Online
-          </LinkTo>
           <HashTo className="link" smooth to="/#Menu">
             Menu
           </HashTo>

@@ -1,98 +1,165 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import styled, { css } from "styled-components";
 
-const BookingForm = ({ avaliableTimes, dispatch }) => {
-  // const [date, setDate] = useState("");
-  // const [time, setTime] = useState("00:00");
-  // const [guests, setGuests] = useState(1);
-  // const [occasion, setOccasion] = useState("Birthday");
-
-  const [reservationData, setReservationData] = useState({
-    date: "",
-    time: avaliableTimes.times[0],
-    guests: 1,
-    occasion: "Birthday",
-  });
-
-  const updateData = (e) => {
-    const { id, value } = e.target;
-    switch (id) {
-      case "date":
-        setReservationData({ ...reservationData, date: value });
-        break;
-      case "time":
-        setReservationData({ ...reservationData, time: value });
-        break;
-      case "guests":
-        setReservationData({ ...reservationData, guests: value });
-        break;
-      case "occasion":
-        setReservationData({ ...reservationData, occasion: value });
-        break;
-      default:
-        console.log(reservationData);
-    }
-  };
-
+const BookingForm = ({
+  avaliableTimes,
+  dispatch,
+  submitForm,
+  reservationData,
+  updateData,
+  setReservationData,
+}) => {
   useEffect(() => {
-    // dispatch({ type: "UPDATE_TIMES", date: new Date(reservationData.date) });
-  }, [reservationData.time]);
-
-  const submitForm = (e) => {
-    e.preventDefault();
-    console.log(reservationData);
-  };
+    dispatch({ type: "UPDATE_TIMES", date: new Date(reservationData.date) });
+  }, [reservationData.date]);
 
   return (
-    <form
+    <Form
       onSubmit={submitForm}
       style={{ display: "grid", maxWidth: "200px", gap: "20px" }}
     >
-      <label for="date">Choose date</label>
-      <input
+      <Label htmlFor="res-date">Choose date</Label>
+      <Input
         required
         value={reservationData.date}
         onChange={updateData}
         type="date"
-        id="date"
+        id="res-date"
+        data-testid="res-date"
       />
 
-      <label for="time">Choose time</label>
-      <select
+      <Label htmlFor="time">Choose time</Label>
+      <Select
         required
-        value={reservationData.time}
+        value={reservationData.times}
         onChange={updateData}
         id="time"
+        data-testid="time-input"
       >
-        {avaliableTimes &&
-          avaliableTimes.times.map((time) => <option>{time}</option>)}
-      </select>
+        {avaliableTimes.times.map((time) => (
+          <option key={time} value={time}>
+            {time}
+          </option>
+        ))}
+      </Select>
 
-      <label for="guest">Number of guests</label>
-      <input
-        required
-        value={reservationData.guests}
-        onChange={updateData}
-        type="number"
-        placeholder="1"
-        min="1"
-        max="10"
-        id="guests"
-      />
-
-      <label for="occasion">Occasion</label>
-      <select
+      <Label htmlFor="guest">Number of guests</Label>
+      <GuestsDiv>
+        <div className="Operator" id="increment" onClick={updateData}>
+          +
+        </div>
+        <Input
+          className="numberInput"
+          required
+          value={reservationData.guests}
+          onChange={updateData}
+          type="number"
+          placeholder="1"
+          min="1"
+          max="10"
+          id="guests"
+          data-testid="guests-input"
+        />
+        <div className="Operator" id="decrement" onClick={updateData}>
+          -
+        </div>
+      </GuestsDiv>
+      <Label htmlFor="occasion">Occasion</Label>
+      <Select
         required
         value={reservationData.occasion}
         onChange={updateData}
         id="occasion"
+        data-testid="occasion-input"
       >
         <option>Birthday</option>
         <option>Anniversary</option>
-      </select>
+      </Select>
 
-      <input type="submit" value="Make Your reservation" />
-    </form>
+      <SubmitButton type="submit" value="Make Your reservation" />
+    </Form>
   );
 };
 
 export default BookingForm;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-width: 50%;
+  background-color: #ee9972;
+  padding: 2rem 0rem 2rem 0rem;
+  border-radius: 20px;
+  margin-top: 6rem;
+`;
+
+export const Label = styled.label`
+  font-size: 28px;
+  font-weight: 500;
+  width: 250px;
+  margin-top: 12px;
+`;
+
+export const GuestsDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  > .Operator {
+    font-size: 40px;
+    background-color: #edefee;
+    border-radius: 50%;
+    padding: 14px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background-color: #495e57;
+      color: #f4ce14;
+    }
+  }
+`;
+
+export const Shared = css`
+  min-height: 25px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+  gap: 2px;
+  font-weight: 500;
+  &:hover {
+    background-color: #495e57;
+    color: #f4ce14;
+    box-shadow: 6px 3px 3px #edefee;
+  }
+`;
+
+export const Input = styled.input`
+  ${Shared}
+  text-align: center;
+`;
+
+export const Select = styled.select`
+  ${Shared}
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: center;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 10px;
+  border: 1px solid #dfdfdf;
+`;
+
+export const SubmitButton = styled.input`
+  ${Shared}
+  background-color: #495e57;
+  color: #edefee;
+  &:hover {
+    color: #f4ce14;
+    box-shadow: 6px 3px 3px #edefee;
+  }
+`;
