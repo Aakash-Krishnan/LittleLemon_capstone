@@ -73,7 +73,10 @@ const Testimonials = () => {
 
 export default Testimonials;
 
-export const WholeContainer = styled.div`
+export const WholeContainer = styled.article`
+  @media screen and (max-width: 600px) {
+    padding: 50px;
+  }
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,6 +87,11 @@ export const WholeContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+  }
   min-width: 100%;
   margin-top: 50px;
   display: flex;
@@ -95,6 +103,11 @@ export const CardContainer = styled.div`
 `;
 
 export const Card = styled.div`
+  /* @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+  } */
   /* width: 20%; */
   min-height: 200px;
   display: flex;

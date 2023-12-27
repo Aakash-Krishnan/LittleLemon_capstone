@@ -45,7 +45,13 @@ const About = () => {
 
 export default About;
 
-export const WholeContainet = styled.div`
+export const WholeContainet = styled.section`
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+  }
   display: flex;
   justify-content: space-around;
   margin-top: 150px;
@@ -53,6 +59,12 @@ export const WholeContainet = styled.div`
 `;
 
 export const ContentDiv = styled.div`
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
   width: 30%;
   margin-left: 60px;
 `;
@@ -74,4 +86,8 @@ export const Description = styled.p`
   color: grey;
   line-height: 1.3rem;
   font-size: 18px;
+  @media screen and (max-width: 600px) {
+    min-width: 300px;
+    text-align: left;
+  }
 `;

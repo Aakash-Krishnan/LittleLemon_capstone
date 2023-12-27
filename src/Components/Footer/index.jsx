@@ -30,6 +30,7 @@ const Footer = () => {
         className="app__about-image-box img-box-1"
         style={{
           backgroundImage: `url(${restaurant})`,
+          margin: "auto",
         }}
       />
       <DataContainer>
@@ -44,6 +45,11 @@ const Footer = () => {
 export default Footer;
 
 export const WholeContainer = styled.div`
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
   display: flex;
   justify-content: center;
   /* margin-top: 10px; */
@@ -54,6 +60,11 @@ export const WholeContainer = styled.div`
 `;
 
 export const DataContainer = styled.div`
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
   display: flex;
   gap: 60px;
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../..";
+import Hero from "../..";
 import ReservationImg from "../../../../assets/restauranfood.jpg";
 
 const ReservationHeader = () => {
@@ -14,7 +14,7 @@ const ReservationHeader = () => {
     link: "#Form",
     image: ReservationImg,
   };
-  return <Header data={data} />;
+  return <Hero data={data} />;
 };
 
 export default ReservationHeader;

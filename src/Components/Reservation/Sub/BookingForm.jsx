@@ -87,11 +87,16 @@ export default BookingForm;
 export const OnTouch = css`
   &:hover {
     cursor: pointer;
-    /* box-shadow: 10px 5px 5px grey; */
   }
 `;
 
 export const Form = styled.form`
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    min-width: 90%;
+  }
   margin-left: 100px;
   display: flex;
   flex-direction: column;

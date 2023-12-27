@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../..";
+import Hero from "../..";
 import restaurentFood from "../../../../assets/restauranfood.jpg";
 
 const HomeHeader = () => {
@@ -16,7 +16,7 @@ remaining essentially unchanged.`,
     link: "/reservation",
     image: restaurentFood,
   };
-  return <Header data={data} />;
+  return <Hero data={data} />;
 };
 
 export default HomeHeader;

@@ -45,6 +45,9 @@ const ConformationPage = () => {
 export default ConformationPage;
 
 export const WholeDiv = styled.div`
+  @media screen and (max-width: 600px) {
+    text-align: center;
+  }
   background-color: #495e57;
 `;
 
@@ -120,6 +123,9 @@ export const Details = styled.div`
 `;
 
 export const LinkTo = styled(Link)`
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
   text-align: center;
   text-decoration: none;
   margin: 20px;

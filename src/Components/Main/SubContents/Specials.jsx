@@ -59,12 +59,20 @@ const Specials = () => {
 
 export default Specials;
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.section`
+  @media screen and (max-width: 600px) {
+    padding: 0px;
+    margin: 20px;
+  }
   margin: 200px 0px 50px 0px;
   padding: 0px 40px 0px 40px;
 `;
 
 export const TopDiv = styled.div`
+  @media screen and (max-width: 600px) {
+    padding: 0px;
+    margin: 0px;
+  }
   padding: 0px 20px 0px 20px;
   display: flex;
   justify-content: space-between;
@@ -92,6 +100,13 @@ export const OrderMenu = styled.button`
 `;
 
 export const CardContainer = styled.div`
+  @media screen and (max-width: 600px) {
+    padding: 0px;
+    margin: 40px 0px 0px 0px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
   padding: 50px;
   margin-top: 50px;
   display: flex;
@@ -103,6 +118,12 @@ export const CardContainer = styled.div`
 `;
 
 export const Card = styled.div`
+  @media screen and (max-width: 600px) {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   width: 20%;
   min-height: 450px;
   display: flex;

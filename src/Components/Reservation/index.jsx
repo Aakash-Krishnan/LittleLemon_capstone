@@ -53,12 +53,21 @@ const Reservation = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    const validate = submitAPI(reservationData);
-    if (validate) {
-      localStorage.setItem("Bookings", JSON.stringify(reservationData));
-      navigate("/conformation", { state: reservationData });
+    if (
+      reservationData.date !== "" &&
+      reservationData.guests !== 0 &&
+      reservationData.occasion !== "" &&
+      reservationData.times !== ""
+    ) {
+      const validate = submitAPI(reservationData);
+      if (validate) {
+        localStorage.setItem("Bookings", JSON.stringify(reservationData));
+        navigate("/conformation", { state: reservationData });
+      } else {
+        alert("Please enter a valid reservation");
+      }
     } else {
-      alert("Please enter a valid reservation");
+      alert("Please enter all the fields");
     }
   };
 
@@ -79,6 +88,18 @@ const Reservation = () => {
 export default Reservation;
 
 export const Container = styled.div`
+  @media screen and (max-width: 600px) {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #333333;
+    margin: 0px;
+    padding: 0px;
+    > h1 {
+      margin: 0px;
+    }
+  }
+
   padding-top: 6rem;
   padding-bottom: 8rem;
   display: flex;
@@ -88,6 +109,8 @@ export const Container = styled.div`
     color: #edefee;
     text-decoration: underline;
     font-size: 40px;
-    margin-left: 50px;
+    @media screen and (min-width: 600px) {
+      margin-left: 50px;
+    }
   }
 `;

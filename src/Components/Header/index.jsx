@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import BlockRevealAnimation from "react-block-reveal-animation";
 import { HashLink } from "react-router-hash-link";
 
-const Header = ({ data }) => {
+const Hero = ({ data }) => {
   return (
     <WholeHeader>
       <LeftPart>
@@ -39,19 +39,38 @@ const Header = ({ data }) => {
   );
 };
 
-export default Header;
+export default Hero;
 
-export const WholeHeader = styled.header`
-  background-color: #495e57;
-  width: 100%;
-  height: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  color: white;
+export const WholeHeader = styled.section`
+  @media screen and (min-width: 600px) {
+    background-color: #495e57;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    color: white;
+  }
+  @media screen and (max-width: 600px) {
+    background-color: #495e57;
+    color: white;
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin: auto;
+  }
 `;
 
 export const LeftPart = styled.div`
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    position: static;
+  }
   margin-top: 60px;
   width: 50%;
   height: 100%;
@@ -76,6 +95,10 @@ export const Description = styled.p`
   font-size: 20px;
   line-height: 25px;
   width: 80%;
+  @media screen and (max-width: 600px) {
+    margin: 38px;
+    text-align: center;
+  }
 `;
 
 export const LinkDiv = styled.div`
@@ -104,13 +127,24 @@ export const HashTo = styled(HashLink)`
   text-decoration: none;
 `;
 
-export const RigthPart = styled.div``;
+export const RigthPart = styled.div`
+  @media screen and (max-width: 600px) {
+    margin: 40px 40px 0px 40px;
+  }
+`;
 
 export const Img = styled.img`
-  width: 350px;
-  height: 500px;
-  border-radius: 20px;
-  position: relative;
-  top: 80px;
-  right: 10px;
+  @media screen and (min-width: 600px) {
+    width: 350px;
+    height: 500px;
+    border-radius: 20px;
+    position: relative;
+    top: 80px;
+    right: 10px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 300px;
+    height: 400px;
+    /* margin: 50px auto; */
+  }
 `;
