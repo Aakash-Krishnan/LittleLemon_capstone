@@ -26,11 +26,11 @@ const Footer = () => {
   const socialMedia = ["Facebook", "Instagram", "Twitter", "Youtube"];
   return (
     <WholeContainer>
-      <div
+      <ImageDiv
         className="app__about-image-box img-box-1"
         style={{
           backgroundImage: `url(${restaurant})`,
-          margin: "auto",
+          // margin: "auto",
         }}
       />
       <DataContainer>
@@ -57,6 +57,12 @@ export const WholeContainer = styled.div`
   padding-bottom: 80px;
   background-color: #edefee;
   gap: 60px;
+`;
+
+export const ImageDiv = styled.div`
+  @media screen and (max-width: 600px) {
+    margin: auto;
+  }
 `;
 
 export const DataContainer = styled.div`
