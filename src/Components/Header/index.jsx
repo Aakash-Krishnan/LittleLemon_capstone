@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import restaurentFood from "../../assets/restauranfood.jpg";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import BlockRevealAnimation from "react-block-reveal-animation";
+import { HashLink } from "react-router-hash-link";
 
 const Header = ({ data }) => {
   return (
@@ -20,14 +20,20 @@ const Header = ({ data }) => {
           <Description>{data.description}</Description>
         </BlockRevealAnimation>
         <LinkDiv>
-          <LinkTo className="link" to={"/reservation"}>
-            {data.goto}
-          </LinkTo>
+          {data.link === "#Form" ? (
+            <HashTo smooth to={data.link}>
+              {data.goto}
+            </HashTo>
+          ) : (
+            <LinkTo className="link" to={data.link}>
+              {data.goto}
+            </LinkTo>
+          )}
         </LinkDiv>
       </LeftPart>
 
       <RigthPart>
-        <Img src={restaurentFood} alt="Img" />
+        <Img src={data.image} alt="Img" />
       </RigthPart>
     </WholeHeader>
   );
@@ -75,13 +81,27 @@ export const Description = styled.p`
 export const LinkDiv = styled.div`
   margin-top: 40px;
 `;
-export const LinkTo = styled(Link)`
+
+export const Shared = css`
   padding: 12px;
   font-size: 22px;
   text-decoration: none;
   background-color: #ccb128;
   color: black;
   border-radius: 20px;
+  &:hover {
+    box-shadow: 10px 5px 5px #1b342c;
+    cursor: pointer;
+    /* color: #1b342c; */
+  }
+`;
+export const LinkTo = styled(Link)`
+  ${Shared}
+`;
+
+export const HashTo = styled(HashLink)`
+  ${Shared}
+  text-decoration: none;
 `;
 
 export const RigthPart = styled.div``;

@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../..";
+import restaurentFood from "../../../../assets/restauranfood.jpg";
 
 const HomeHeader = () => {
   const data = {
@@ -12,6 +13,8 @@ and scrambled it to make a type specimen book. It has survived not
 only five centuries, but also the leaps into electronic typesetting,
 remaining essentially unchanged.`,
     goto: "Reserve a Table",
+    link: "/reservation",
+    image: restaurentFood,
   };
   return <Header data={data} />;
 };

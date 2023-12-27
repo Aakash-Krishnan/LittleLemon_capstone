@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../..";
+import ReservationImg from "../../../../assets/restauranfood.jpg";
 
 const ReservationHeader = () => {
   const data = {
@@ -10,6 +11,8 @@ const ReservationHeader = () => {
     ever since the 1500s, when an unknown printer took a galley of type
     and scrambled it to make a type specimen book.`,
     goto: "Book a table",
+    link: "#Form",
+    image: ReservationImg,
   };
   return <Header data={data} />;
 };

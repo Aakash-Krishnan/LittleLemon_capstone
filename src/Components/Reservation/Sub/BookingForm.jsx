@@ -14,6 +14,7 @@ const BookingForm = ({
 
   return (
     <Form
+      id="Form"
       onSubmit={submitForm}
       style={{ display: "grid", maxWidth: "200px", gap: "20px" }}
     >
@@ -83,6 +84,13 @@ const BookingForm = ({
 
 export default BookingForm;
 
+export const OnTouch = css`
+  &:hover {
+    cursor: pointer;
+    /* box-shadow: 10px 5px 5px grey; */
+  }
+`;
+
 export const Form = styled.form`
   margin-left: 100px;
   display: flex;
@@ -109,8 +117,9 @@ export const GuestsDiv = styled.div`
   align-items: center;
   gap: 40px;
   > .Operator {
+    ${OnTouch}
+
     font-size: 40px;
-    /* background-color: #edefee; */
     border-radius: 50%;
     padding: 14px;
     height: 20px;
@@ -141,11 +150,15 @@ export const Shared = css`
 
 export const Input = styled.input`
   ${Shared}
+  ${OnTouch}
+
   text-align: center;
 `;
 
 export const Select = styled.select`
   ${Shared}
+  ${OnTouch}
+
   -webkit-appearance: none;
   -moz-appearance: none;
   text-align: center;

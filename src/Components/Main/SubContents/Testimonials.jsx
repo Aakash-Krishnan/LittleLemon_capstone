@@ -84,6 +84,7 @@ export const WholeContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
+  min-width: 100%;
   margin-top: 50px;
   display: flex;
   align-items: center;
@@ -103,6 +104,10 @@ export const Card = styled.div`
   padding: 10px 30px 20px 30px;
   background-color: #edefee;
   transition: 0.3s;
+  &:hover {
+    box-shadow: 10px 5px 5px grey;
+    cursor: pointer;
+  }
 `;
 
 export const FoodImg = styled.img``;

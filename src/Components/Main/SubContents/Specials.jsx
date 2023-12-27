@@ -74,6 +74,7 @@ export const TopDiv = styled.div`
 export const Title = styled.div`
   font-weight: bolder;
   font-size: 40px;
+  text-decoration: underline;
 `;
 
 export const OrderMenu = styled.button`
@@ -113,6 +114,10 @@ export const Card = styled.div`
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
   transition: 0.3s;
   /* width: 40%; */
+  &:hover {
+    box-shadow: 10px 5px 5px grey;
+    cursor: pointer;
+  }
 `;
 
 export const FoodImg = styled.img`
@@ -140,4 +145,9 @@ export const OrderButton = styled.button`
   background-color: #495e57;
   color: #edefee;
   cursor: pointer;
+  font-size: 20px;
+  &:hover {
+    color: #495e57;
+    background-color: #edefee;
+  }
 `;
